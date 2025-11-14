@@ -1,6 +1,6 @@
 # IDIM - ID as a Model-Free Measure of Class Imbalance
 
-Welcome! This is the project page for ["Intrinsic Dimensionality as a Model-Free Measure of Class Imbalance"][https://arxiv.org/abs/2511.10475]
+Welcome! This is the project page for ["Intrinsic Dimensionality as a Model-Free Measure of Class Imbalance"](https://arxiv.org/abs/2511.10475).
 
 Some parts of this repository are *currently under construction* 🚧. Stay tuned!
 
@@ -19,11 +19,11 @@ For integration with other methods, we provide further details on how to use our
 
 ### Citation
 
-If you like this work, you can cite it as:
-
+```
 @article{eser2025intrinsic,
   title={Intrinsic Dimensionality as a Model-Free Measure of Class Imbalance},
   author={Cagri Eser and Zeynep Sonat Baltaci and Emre Akbas and Sinan Kalkan},
   journal={arXiv preprint arXiv:2511.10475},
   year={2025}
 }
+```
