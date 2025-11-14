@@ -1,0 +1,200 @@
+2025-08-04 22:49:50,560 ---------------------Cfg is set as follow--------------------
+2025-08-04 22:49:50,560 BACKBONE:
+  FREEZE: False
+  PRETRAINED_MODEL: 
+  TYPE: res32_cifar
+CLASSIFIER:
+  BIAS: True
+  TYPE: FC
+COLOR_SPACE: RGB
+DATASET:
+  CAM_DATA_JSON_SAVE_PATH: 
+  CAM_DATA_SAVE_PATH: 
+  CAM_NUMBER_THRES: 0
+  DATASET: IMBALANCECIFAR10
+  GENERATE_CAM_BASED_DATASET: False
+  IMBALANCECIFAR:
+    RANDOM_SEED: 0
+    RATIO: 0.01
+  IMBALANCEPLACES:
+    RANDOM_SEED: 0
+    RATIO: 0.1
+  ROOT: /home/cifar10/data
+  TEST_JSON: 
+  TRAIN_JSON: 
+  USE_CAM_BASED_DATASET: False
+  VALID_JSON: 
+EVAL_MODE: False
+INPUT_SIZE: (32, 32)
+LOSS:
+  CBID:
+    BETA: 0.999
+    FACTOR: 0.5
+    WEIGHTS: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+  CBIdFocal:
+    BETA: 0.999
+    FACTOR: 1.0
+    GAMMA: 0.5
+    UNC_WEIGHTS: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+  CDT:
+    GAMMA: 0.2
+  ClassBalanceCE:
+    BETA: 0.999
+  ClassBalanceFocal:
+    BETA: 0.999
+    GAMMA: 0.5
+  CostSensitiveCE:
+    GAMMA: 1.0
+  CrossEntropy:
+    WEIGHTS: [0.58259719, 0.74724292, 0.73108367, 0.91077318, 0.746862, 1.22059175, 0.61860375, 1.31369266, 1.20900147, 1.9195514]
+  CrossEntropyLabelAwareSmooth:
+    SHAPE: concave
+    SMOOTH_HEAD: 0.4
+    SMOOTH_TAIL: 0.1
+  CrossEntropyLabelSmooth:
+    EPSILON: 0.1
+  FocalLoss:
+    GAMMA: 2.0
+  IdFocal:
+    GAMMA: 0.5
+    UNC_WEIGHTS: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+  LDAMLoss:
+    MAX_MARGIN: 0.5
+    SCALE: 30.0
+  LOSS_TYPE: CrossEntropy
+  SEQL:
+    GAMMA: 0.9
+    LAMBDA: 0.005
+MODULE:
+  TYPE: GAP
+NAME: cifar10_imb100_fish
+NETWORK:
+  PRETRAINED: False
+  PRETRAINED_MODEL: 
+OUTPUT_DIR: ./output/cifar10_imb100
+PIN_MEMORY: True
+RESUME_MODE: all
+RESUME_MODEL: 
+SAVE_STEP: 5
+SHOW_STEP: 100
+TEST:
+  BATCH_SIZE: 64
+  MODEL_FILE: best_model.pth
+  NUM_WORKERS: 8
+  TAU_NORM:
+    TAU: 1.0
+    USE_TAU_NORM: False
+TRAIN:
+  APEX: True
+  BATCH_SIZE: 128
+  COMBINER:
+    ALPHA: 1.0
+    MANIFOLD_MIX_UP:
+      LOCATION: pool
+    REMIX:
+      KAPPA: 3.0
+      TAU: 0.5
+    TYPE: default
+  DISTRIBUTED: False
+  LR_SCHEDULER:
+    COSINE_DECAY_END: 0
+    LR_FACTOR: 0.01
+    LR_STEP: [160, 180]
+    TYPE: warmup
+    WARM_EPOCH: 5
+  MAX_EPOCH: 200
+  NUM_WORKERS: 16
+  OPTIMIZER:
+    BASE_LR: 0.1
+    FEAT_LR: 0.001
+    MOMENTUM: 0.9
+    TYPE: SGD
+    WEIGHT_DECAY: 0.0002
+  SAMPLER:
+    BBN_SAMPLER:
+      TYPE: reverse
+    TYPE: default
+    WEIGHTED_SAMPLER:
+      CUSTOM:
+        WEIGHTS: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+      IdBased:
+        PROBS: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+        PROGRESSIVE: False
+      TYPE: custom
+  SHUFFLE: True
+  SYNCBN: True
+  TENSORBOARD:
+    ENABLE: True
+  TWO_STAGE:
+    DRS: False
+    DRW: False
+    START_EPOCH: 1
+TRANSFORMS:
+  PROCESS_DETAIL:
+    RANDOM_CROP:
+      PADDING: 4
+    RANDOM_RESIZED_CROP:
+      RATIO: (0.75, 1.333333333)
+      SCALE: (0.08, 1.0)
+  TEST_TRANSFORMS: ()
+  TRAIN_TRANSFORMS: ('random_crop', 'random_horizontal_flip')
+VALID_STEP: 1
+2025-08-04 22:49:50,561 -------------------------------------------------------------
+2025-08-04 22:49:52,897 -------------------Train start :res32_cifar  GAP  default -------------------
+2025-08-04 22:49:53,612 Epoch:  1  Batch:  0/96  Batch_Loss:3.305  Batch_Accuracy: 1.56%     
+2025-08-04 22:49:57,672 ---Epoch:  1/200   Avg_Loss:1.584   Epoch_Accuracy:53.34%   Epoch_Time: 0.08min---
+2025-08-04 22:49:59,137 ------- Valid: Epoch:  1  Valid_Loss:2.985   Valid_Acc:22.59%-------
+2025-08-04 22:50:00,561 ------- Valid: Epoch:  1  Valid_Loss:2.985   Valid_Acc:22.59%-------
+2025-08-04 22:50:00,562 --------------Best_Epoch:  1    Best_Valid_Acc:22.59%--------------
+2025-08-04 22:50:00,562 --------------Best_Epoch:  1    Best_Test_Acc:22.59%--------------
+2025-08-04 22:50:00,906 Epoch:  2  Batch:  0/96  Batch_Loss:1.412  Batch_Accuracy:56.25%     
+2025-08-04 22:50:04,897 ---Epoch:  2/200   Avg_Loss:1.223   Epoch_Accuracy:62.00%   Epoch_Time: 0.07min---
+2025-08-04 22:50:06,287 ------- Valid: Epoch:  2  Valid_Loss:2.899   Valid_Acc:27.28%-------
+2025-08-04 22:50:07,763 ------- Valid: Epoch:  2  Valid_Loss:2.899   Valid_Acc:27.28%-------
+2025-08-04 22:50:07,763 --------------Best_Epoch:  2    Best_Valid_Acc:27.28%--------------
+2025-08-04 22:50:07,763 --------------Best_Epoch:  2    Best_Test_Acc:27.28%--------------
+2025-08-04 22:50:08,224 Epoch:  3  Batch:  0/96  Batch_Loss:1.172  Batch_Accuracy:63.28%     
+2025-08-04 22:50:12,252 ---Epoch:  3/200   Avg_Loss:1.115   Epoch_Accuracy:65.70%   Epoch_Time: 0.07min---
+2025-08-04 22:50:13,732 ------- Valid: Epoch:  3  Valid_Loss:2.469   Valid_Acc:31.45%-------
+2025-08-04 22:50:15,226 ------- Valid: Epoch:  3  Valid_Loss:2.469   Valid_Acc:31.45%-------
+2025-08-04 22:50:15,226 --------------Best_Epoch:  3    Best_Valid_Acc:31.45%--------------
+2025-08-04 22:50:15,227 --------------Best_Epoch:  3    Best_Test_Acc:31.45%--------------
+2025-08-04 22:50:15,596 Epoch:  4  Batch:  0/96  Batch_Loss:1.006  Batch_Accuracy:64.84%     
+2025-08-04 22:50:19,732 ---Epoch:  4/200   Avg_Loss:1.036   Epoch_Accuracy:67.99%   Epoch_Time: 0.08min---
+2025-08-04 22:50:21,171 ------- Valid: Epoch:  4  Valid_Loss:2.817   Valid_Acc:26.44%-------
+2025-08-04 22:50:21,171 --------------Best_Epoch:  3    Best_Valid_Acc:31.45%--------------
+2025-08-04 22:50:21,171 --------------Best_Epoch:  3    Best_Test_Acc:31.45%--------------
+2025-08-04 22:50:21,517 Epoch:  5  Batch:  0/96  Batch_Loss:1.079  Batch_Accuracy:69.53%     
+2025-08-04 22:50:25,413 ---Epoch:  5/200   Avg_Loss:0.968   Epoch_Accuracy:70.23%   Epoch_Time: 0.07min---
+2025-08-04 22:50:26,914 ------- Valid: Epoch:  5  Valid_Loss:2.247   Valid_Acc:35.98%-------
+2025-08-04 22:50:28,369 ------- Valid: Epoch:  5  Valid_Loss:2.247   Valid_Acc:35.98%-------
+2025-08-04 22:50:28,370 --------------Best_Epoch:  5    Best_Valid_Acc:35.98%--------------
+2025-08-04 22:50:28,370 --------------Best_Epoch:  5    Best_Test_Acc:35.98%--------------
+2025-08-04 22:50:28,738 Epoch:  6  Batch:  0/96  Batch_Loss:0.898  Batch_Accuracy:69.53%     
+2025-08-04 22:50:32,779 ---Epoch:  6/200   Avg_Loss:0.913   Epoch_Accuracy:72.43%   Epoch_Time: 0.07min---
+2025-08-04 22:50:34,173 ------- Valid: Epoch:  6  Valid_Loss:2.080   Valid_Acc:37.62%-------
+2025-08-04 22:50:35,644 ------- Valid: Epoch:  6  Valid_Loss:2.080   Valid_Acc:37.62%-------
+2025-08-04 22:50:35,644 --------------Best_Epoch:  6    Best_Valid_Acc:37.62%--------------
+2025-08-04 22:50:35,644 --------------Best_Epoch:  6    Best_Test_Acc:37.62%--------------
+2025-08-04 22:50:36,019 Epoch:  7  Batch:  0/96  Batch_Loss:0.986  Batch_Accuracy:75.00%     
+2025-08-04 22:50:40,054 ---Epoch:  7/200   Avg_Loss:0.857   Epoch_Accuracy:74.37%   Epoch_Time: 0.07min---
+2025-08-04 22:50:41,536 ------- Valid: Epoch:  7  Valid_Loss:2.545   Valid_Acc:36.80%-------
+2025-08-04 22:50:41,536 --------------Best_Epoch:  6    Best_Valid_Acc:37.62%--------------
+2025-08-04 22:50:41,537 --------------Best_Epoch:  6    Best_Test_Acc:37.62%--------------
+2025-08-04 22:50:41,899 Epoch:  8  Batch:  0/96  Batch_Loss:0.884  Batch_Accuracy:73.44%     
+2025-08-04 22:50:45,990 ---Epoch:  8/200   Avg_Loss:0.798   Epoch_Accuracy:75.65%   Epoch_Time: 0.07min---
+2025-08-04 22:50:47,386 ------- Valid: Epoch:  8  Valid_Loss:2.381   Valid_Acc:39.12%-------
+2025-08-04 22:50:48,882 ------- Valid: Epoch:  8  Valid_Loss:2.381   Valid_Acc:39.12%-------
+2025-08-04 22:50:48,882 --------------Best_Epoch:  8    Best_Valid_Acc:39.12%--------------
+2025-08-04 22:50:48,883 --------------Best_Epoch:  8    Best_Test_Acc:39.12%--------------
+2025-08-04 22:50:49,291 Epoch:  9  Batch:  0/96  Batch_Loss:0.496  Batch_Accuracy:85.94%     
+2025-08-04 22:50:53,234 ---Epoch:  9/200   Avg_Loss:0.769   Epoch_Accuracy:76.73%   Epoch_Time: 0.07min---
+2025-08-04 22:50:54,703 ------- Valid: Epoch:  9  Valid_Loss:2.163   Valid_Acc:47.19%-------
+2025-08-04 22:50:56,261 ------- Valid: Epoch:  9  Valid_Loss:2.163   Valid_Acc:47.19%-------
+2025-08-04 22:50:56,261 --------------Best_Epoch:  9    Best_Valid_Acc:47.19%--------------
+2025-08-04 22:50:56,261 --------------Best_Epoch:  9    Best_Test_Acc:47.19%--------------
+2025-08-04 22:50:56,660 Epoch: 10  Batch:  0/96  Batch_Loss:0.699  Batch_Accuracy:79.69%     
+2025-08-04 22:51:00,604 ---Epoch: 10/200   Avg_Loss:0.730   Epoch_Accuracy:77.78%   Epoch_Time: 0.07min---
+2025-08-04 22:51:02,002 ------- Valid: Epoch: 10  Valid_Loss:2.028   Valid_Acc:44.46%-------
+2025-08-04 22:51:02,002 --------------Best_Epoch:  9    Best_Valid_Acc:47.19%--------------
+2025-08-04 22:51:02,002 --------------Best_Epoch:  9    Best_Test_Acc:47.19%--------------

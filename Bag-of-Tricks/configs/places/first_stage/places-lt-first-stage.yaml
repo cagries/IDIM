@@ -1,0 +1,58 @@
+NAME: 'places-lt_bag_of_tricks_first_stage'
+OUTPUT_DIR: './output/Places-LT/'
+SHOW_STEP: 200
+SAVE_STEP: 10
+VALID_STEP: 1
+INPUT_SIZE: (256, 256)
+COLOR_SPACE: 'RGB'
+
+DATASET:
+  DATASET: 'PlacesLT'
+  TRAIN_JSON: '/path/to/Places_LT_train.json'
+  VALID_JSON: '/path/to/Places_LT_val.json'
+  TEST_JSON: '/path/to/Places_LT_test.json'
+MODULE:
+  TYPE: 'Identity'
+
+CLASSIFIER:
+  TYPE: 'FC'
+  BIAS: True
+
+LOSS:
+  LOSS_TYPE: 'CrossEntropy'
+
+BACKBONE:
+  TYPE: 'res152_no_caffe'
+
+TRAIN:
+  BATCH_SIZE: 128
+  MAX_EPOCH: 40
+  NUM_WORKERS: 16
+  COMBINER:
+    TYPE: 'mix_up'
+    ALPHA: 1.0
+  OPTIMIZER:
+    TYPE: 'SGD'
+    BASE_LR: 0.01
+    FEAT_LR: 0.001
+    MOMENTUM: 0.9
+    WEIGHT_DECAY: 5e-4
+  LR_SCHEDULER:
+    TYPE: 'multistep'
+    LR_STEP: [25, 35]
+    LR_FACTOR: 0.1
+  TENSORBOARD:
+    ENABLE: False
+  SAMPLER:
+    TYPE: 'default'
+  DISTRIBUTED: False
+  SYNCBN: True
+
+TRANSFORMS:
+  TRAIN_TRANSFORMS: ('random_resized_crop', 'random_horizontal_flip', 'color_jitter')
+  TEST_TRANSFORMS: ('shorter_resize_for_crop', 'center_crop')
+
+TEST:
+  BATCH_SIZE: 512
+  NUM_WORKERS: 8
+  MODEL_FILE: 'best_model.pth'
