@@ -1,12 +1,15 @@
 # IDIM - ID as a Model-Free Measure of Class Imbalance
 
-This repository contains the official implementation of:  
+This repository contains the official implementation of the _Neurocomputing_ article:
+
 **“Intrinsic Dimensionality as a Model-Free Measure of Class Imbalance”**  
-_Çağrı Eser_, _Zeynep Sonat Baltacı_, _Emre Akbaş_, and _Sinan Kalkan_.
+_Çağrı Eser_, _Zeynep Sonat Baltacı_, _Emre Akbaş_, and _Sinan Kalkan_. \
+[Neurocomputing 674 (2026) 132938](https://doi.org/10.1016/j.neucom.2026.132938)
 
-> Paper (arXiv): [https://arxiv.org/abs/2511.10475](https://arxiv.org/abs/2511.10475)
+> Paper: https://doi.org/10.1016/j.neucom.2026.132938
 
-<img src="docs/id-under-noise.png" width="800" alt="ID is robust against random noise">
+<img src="docs/id-teaser.png" width="800" alt="Teaser figure for ID as a Model-Free Measure of Class Imbalance">
+<img src="docs/id-fig4.png" width="600" alt="ID is robust against random noise">
 
 ## Table of Contents
 
@@ -74,11 +77,13 @@ Each method has a dedicated directory under `methods/` with its own instructions
 
 ## Results
 
-<img src="docs/id-cifar.png" width="600" alt="ID on CIFAR-LT">
+<img src="docs/id-table1.png" width="600" alt="ID on CIFAR-LT">
 
-<img src="docs/id-plt.png" width="600" alt="ID on Places-LT">
+<img src="docs/id-table4.png" width="600" alt="ID on CIFAR-LT">
 
-<img src="docs/id-ilt.png" width="600" alt="ID on ImageNet-LT">
+<img src="docs/id-table5.png" width="600" alt="ID on Places-LT">
+
+<img src="docs/id-table7.png" width="600" alt="ID on ImageNet-LT">
 
 ## Pretrained Models
 We release a subset of the models used in the paper.
@@ -108,11 +113,18 @@ We release a subset of the models used in the paper.
 If you would like to cite this work, please use:
 
 ```
-@article{eser2025intrinsic,
-  title={Intrinsic Dimensionality as a Model-Free Measure of Class Imbalance},
-  author={Cagri Eser and Zeynep Sonat Baltaci and Emre Akbas and Sinan Kalkan},
-  journal={arXiv preprint arXiv:2511.10475},
-  year={2025}
+@article{eser2026intrinsic,
+title = {Intrinsic dimensionality as a model-free measure of class imbalance},
+journal = {Neurocomputing},
+volume = {674},
+pages = {132938},
+year = {2026},
+issn = {0925-2312},
+doi = {https://doi.org/10.1016/j.neucom.2026.132938},
+url = {https://www.sciencedirect.com/science/article/pii/S0925231226003358},
+author = {Cagri Eser and Zeynep Sonat Baltaci and Emre Akbas and Sinan Kalkan},
+keywords = {Intrinsic dimension, Long-tailed visual recognition, Class imbalance, Long-tailed learning},
+abstract = {Imbalance in classification tasks is commonly quantified by the cardinalities of examples across classes. This, however, disregards the presence of redundant examples and inherent differences in the learning difficulties of classes. Alternatively, one can use complex measures such as training loss and uncertainty, which, however, depend on training a machine learning model. Our paper proposes using data Intrinsic Dimensionality (ID) as an easy-to-compute, model-free measure of imbalance that can be seamlessly incorporated into various imbalance mitigation methods. Our results across five different datasets with a diverse range of imbalance ratios show that ID consistently outperforms cardinality-based re-weighting and re-sampling techniques used in the literature. Moreover, we show that combining ID with cardinality can further improve performance. Our code and models are available at https://github.com/cagries/IDIM.}
 }
 ```
 
