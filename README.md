@@ -4,12 +4,14 @@ This repository contains the official implementation of the _Neurocomputing_ art
 
 **“Intrinsic Dimensionality as a Model-Free Measure of Class Imbalance”**  
 _Çağrı Eser_, _Zeynep Sonat Baltacı_, _Emre Akbaş_, and _Sinan Kalkan_. \
-[Neurocomputing 674 (2026) 132938](https://doi.org/10.1016/j.neucom.2026.132938)
+Neurocomputing 674 (2026) 132938
 
-> Paper: https://doi.org/10.1016/j.neucom.2026.132938
+> Paper: [https://doi.org/10.1016/j.neucom.2026.132938](https://authors.elsevier.com/a/1marD3INukZv%7EU) \
+  Preprint: https://arxiv.org/abs/2511.10475
 
-<img src="docs/id-teaser.png" width="800" alt="Teaser figure for ID as a Model-Free Measure of Class Imbalance">
-<img src="docs/id-fig4.png" width="600" alt="ID is robust against random noise">
+<img src="docs/fig1.png" width="800" alt="Teaser figure for ID as a Model-Free Measure of Class Imbalance">
+
+<img src="docs/fig4.png" width="800" alt="ID is robust against random noise">
 
 ## Table of Contents
 
@@ -77,13 +79,13 @@ Each method has a dedicated directory under `methods/` with its own instructions
 
 ## Results
 
-<img src="docs/id-table1.png" width="600" alt="ID on CIFAR-LT">
+<img src="docs/tab1.png" width="800" alt="ID on CIFAR-LT against cardinality-based methods">
 
-<img src="docs/id-table4.png" width="600" alt="ID on CIFAR-LT">
+<img src="docs/tab4.png" width="800" alt="ID on CIFAR-LT SOTA">
 
-<img src="docs/id-table5.png" width="600" alt="ID on Places-LT">
+<img src="docs/tab5.png" width="800" alt="ID on Places-LT SOTA">
 
-<img src="docs/id-table7.png" width="600" alt="ID on ImageNet-LT">
+<img src="docs/tab7.png" width="800" alt="ID on ImageNet-LT SOTA">
 
 ## Pretrained Models
 We release a subset of the models used in the paper.
